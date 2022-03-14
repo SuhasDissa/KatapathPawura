@@ -19,12 +19,12 @@ body {
 
 @font-face {
     font-family: 'Nilanthi';
-    src: url('fonts/nilanthi.ttf');
+    src: url('../fonts/nilanthi.ttf');
 }
 
 @font-face {
     font-family: 'Alakamanda';
-    src: url('fonts/alakamanda.ttf');
+    src: url('../fonts/alakamanda.ttf');
 }
 
 .header div {
