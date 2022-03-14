@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="topbar">
-        <button onclick="newpost()">නව පොස්ටුවක් එක් කරන්න <i class="material-icons">edit</i></button><button>1</button><button>1</button>
+        <button onclick="newpost()">නව පොස්ටුවක් එක් කරන්න <i class="material-icons">edit</i></button><button hidden>1</button><button hidden>1</button>
     </div>
     <div class="content">
         <div>
@@ -92,7 +92,7 @@
             var subject = document.getElementById("subject").value.replaceAll("\n", "<br>");
 
             if (!topic || !subject) {
-                alert("Dont leave Blanks")
+                alert("සියලු තොරතුරු පුරවන්න!!")
             } else {
                 const postData = {
                     topic: encodeUnicode(topic),
@@ -109,6 +109,7 @@
                     .then(res => res.json())
                     .then(res => console.log(res));
                 closenewpost();
+                alert("පොස්ටුව ඇතුලත් කිරීම සාර්ථකයි.අවශ්‍ය නම් පිටුව reload කරන්න");
             }
         }
     </script>
