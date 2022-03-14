@@ -111,19 +111,28 @@
         }
 
         #popuppadding>div {
-            width: 50%;
+            display: flex;
+            width: 80%;
             height: fit-content;
             font-size: 30px;
             padding: 30px;
-            background: radial-gradient(circle, rgba(244,232,182,1) 0%, rgba(241,199,116,1) 39%, rgba(198,153,60,1) 100%);
+            /* background: radial-gradient(circle, rgba(244,232,182,1) 0%, rgba(241,199,116,1) 39%, rgba(198,153,60,1) 100%); */
             border-radius: 50px;
             box-shadow: 0 0 60px 35px #000;
+            /* height: 67%; */
+            background-color: rgba(244,232,182,1);
+            justify-content: center;
+            flex-direction: column;
+            max-height: 80%;
         }
 
         #popuppadding>div>div.toolbar {
             display: flex;
             flex-wrap: nowrap;
             width: 100%;
+            /* position: relative; */
+            /* bottom: 90px; */
+            /* flex-direction: row; */
             height: fit-content;
         }
 
@@ -144,7 +153,8 @@
             height: fit-content;
             font-size: 30px;
             padding: 30px;
-            background: radial-gradient(circle, rgba(244,232,182,1) 0%, rgba(241,199,116,1) 39%, rgba(198,153,60,1) 100%);
+            /* background: radial-gradient(circle, rgba(244,232,182,1) 0%, rgba(241,199,116,1) 39%, rgba(198,153,60,1) 100%); */
+            background-color: rgba(244,232,182,1);
             border-radius: 50px;
             box-shadow: 0 0 60px 35px #000;
         }
@@ -163,7 +173,7 @@
             margin: 10px;
             padding: 10px;
             font-size: 30px;
-            background-color: #be8a4e;
+            background-color: #ebc16e;
             border: none;
             border-radius: 10px;
             box-shadow: 0 0 15px 2px #000;
@@ -184,7 +194,7 @@
             margin: 10px;
             padding: 10px;
             font-size: 30px;
-            background-color: #be8a4e;
+            background-color: #ecc26e;
             border: none;
             border-radius: 10px;
             box-shadow: 0 0 15px 2px #000;
@@ -196,10 +206,12 @@
         }
 
         #popup {
+            height: 100%;
             font-family: "Alakamanda";
             display: block;
             overflow-y: auto;
-            max-height: 400px;
+            text-align: center;
+            /* max-height: 400px; */
         }
 
         #newpost div {
@@ -244,7 +256,14 @@
                 font-size: 80px;
             }
         }
-
+@media screen and (max-width: 600px) {
+            .topbar{
+                flex-direction: column;
+            }
+    .topbar button{
+        margin: 6px 0px 6px 0px;
+    }
+            }
         @media screen and (max-width: 500px) {
             ul.table {
                 grid-template-columns: repeat(1, 1fr);
@@ -276,7 +295,7 @@
         <div>
             <span id="popup"></span>
             <div class="toolbar">
-                <button id="editbtn">Edit <i class="material-icons">edit</i></button><button>Like <i class="material-icons">thumb_up</i></button><button onclick="closepopup()">Close <i class="material-icons">close</i></button>
+                <button id="editbtn">Edit <i class="material-icons">edit</i></button><button onclick="closepopup()">Close <i class="material-icons">close</i></button>
             </div>
         </div>
 
