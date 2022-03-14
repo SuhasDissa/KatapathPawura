@@ -26,6 +26,7 @@
     </div>
     <div id="popuppadding">
         <div>
+            <div id="popup_topic">Topic</div>
             <span id="popup"></span>
             <div class="toolbar">
                 <button id="editbtn">Edit <i class="material-icons">edit</i></button><button onclick="closepopup()">Close <i class="material-icons">close</i></button>
@@ -53,13 +54,14 @@
         }).then(obj => {
             console.log(obj);
             table.innerHTML = '';
-            obj.forEach(posts => {
-                table.innerHTML += '<li><div class="topic">' + decodeUnicode(posts.topic) + '</div><div onclick="popup(this,\' ' + posts._id + '\')" class="textblock">' + decodeUnicode(posts.content) + '</div></li>'
+            obj.slice().reverse().forEach(posts => {
+                table.innerHTML += '<li onclick="popup(this)"><div class="topic">' + decodeUnicode(posts.topic) + '</div><div class="textblock">' + decodeUnicode(posts.content) + '</div></li>'
             });
         });
 
-        function popup(element, postid) {
-            document.getElementById("popup").innerHTML = element.innerHTML;
+        function popup(element) {
+            document.getElementById("popup_topic").innerHTML = element.getElementsByClassName("topic")[0].innerHTML;
+            document.getElementById("popup").innerHTML = element.getElementsByClassName("textblock")[0].innerHTML;
             document.getElementById("popuppadding").style.display = "flex";
         }
 
