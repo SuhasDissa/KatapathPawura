@@ -48,7 +48,10 @@
     </div>
     <script>
         const table = document.getElementById("result");
-        fetch("https://desertisland.herokuapp.com/posts").then(data => {
+        fetch("https://desertisland.herokuapp.com/", {
+            method: 'GET',
+            collection: 'posts'
+        }).then(data => {
             console.log(data);
             return data.json();
         }).then(obj => {
@@ -102,12 +105,13 @@
                 };
                 const options = {
                     method: 'POST',
+                    collection: 'posts',
                     body: JSON.stringify(postData),
                     headers: {
                         'Content-Type': 'application/json'
                     }
                 }
-                fetch("https://desertisland.herokuapp.com/post", options)
+                fetch("https://desertisland.herokuapp.com/", options)
                     .then(res => res.json())
                     .then(res => console.log(res));
                 closenewpost();
