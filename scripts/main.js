@@ -1,22 +1,8 @@
-const params = new Proxy(new URLSearchParams(window.location.search), {
-    get: (searchParams, prop) => searchParams.get(prop),
-});
-var mode = 'posts'
-if (params.mode) {
-    mode = params.mode;
-    if (mode == 'stories') {
-        document.getElementById("main_heading").innerHTML = 'iskay, j,a l;d'
-    } else if (mode == 'songs') {
-        document.getElementById("main_heading").innerHTML = 'iskay, j,a iskaÿ'
-    } else {
-        mode = 'posts';
-    }
-}
 const table = document.getElementById("result");
 fetch("https://desertisland.herokuapp.com/", {
     method: 'GET',
     headers: {
-        'collection': mode
+        'collection': 'posts'
     }
 }).then(data => {
     console.log(data);
@@ -75,7 +61,7 @@ function submit() {
             body: JSON.stringify(postData),
             headers: {
                 'Content-Type': 'application/json',
-                'collection': mode
+                'collection': 'posts'
             }
         }
         fetch("https://desertisland.herokuapp.com/", options)
